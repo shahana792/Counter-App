@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Button </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: url("https://img.freepik.com/free-photo/colorful-abstract-textured-background-design_53876-108265.jpg?t=st=1718791800~exp=1718795400~hmac=86c81151fa21c40a3bad0d80952dbc0e34d3f8961f39400df9c517ba5595acf8&w=1480") no-repeat center center fixed;
+         
+        }
+        
+        .container {
+            background: #262c38;
+            padding: 20px;
+            border-radius: 15px;
+           
+        }
+
+        .counter-button {
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            background-color: #28a745;
+            color: rgb(254, 253, 253);
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .counter-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter Button with useState</h1>
+    <div class="container" id="counterApp"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function CounterButton() {
+            const [count, setCount] = useState(27);
+
+            const handleClick = () => {
+                setCount(count + 1);
+            };
+
+            return (
+                <button className="counter-button" onClick={handleClick}>
+                    {count}
+                </button>
+            );
+        }
+
+        const rootElement = document.getElementById("counterApp");
+        ReactDOM.createRoot(rootElement).render(<CounterButton />);
+    </script>
+</body>
+</html>
